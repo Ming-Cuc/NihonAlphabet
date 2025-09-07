@@ -1,0 +1,2 @@
+# Force LF to avoid CRLF warning across OS
+* text=auto eol=lf
