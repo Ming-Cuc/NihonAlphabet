@@ -1,9 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
-import { ok } from 'assert';
-import { error, time } from 'console';
+import express from 'express';
+import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
