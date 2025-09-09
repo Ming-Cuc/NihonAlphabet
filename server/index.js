@@ -22,10 +22,10 @@ app.get('/api/health', (req, res) => {
     res.json({ok: true, time: new Date().toISOString()});
 });
 
-app.get('/api/kana', (req, res) => {
+app.get('/', (req, res) => {
     const type = req.query.type; // hiragana or katakana
     if (!['hira', 'kata'].includes(type)) {
-        return res.status(400).json(error('Invalid type parameter') );
+        return res.status(400).json({ ok: false, error: 'Invalid type parameter' });
     }
     res.set('Cache-Control','no-store');
     return res.json(Kana[type]);
