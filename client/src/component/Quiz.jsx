@@ -62,7 +62,7 @@ export default function Quiz() {
                 Luyện {type === 'hira' ? 'Hiragana' : 'Katakana'}
             </h2>
 
-            <form onSubmit={handleSubmit} className="quiz">
+            <form className="quiz">
                 {list.map((item, idx) => {
                     const correct = showResult && isCorrect(answers[idx], item);
                     const wrong = showResult && !correct && (answers[idx] ?? '').length > 0;
@@ -94,21 +94,20 @@ export default function Quiz() {
                         </div>
                     );
                 })}
-
-                {/* Nút nộp bài */}
-                {!showResult && (
-                    <button type="submit" className="submit-btn">
-                        Nộp bài
-                    </button>
-                )}
-
-                {/* Hiện điểm khi đã nộp */}
-                {score && (
-                    <div className="score">
-                        Bạn đúng {score.correct}/{score.total}
-                    </div>
-                )}
             </form>
+            {/* Nút nộp bài ra ngoài form */}
+            {!showResult && (
+                <button className="submit-btn" onClick={handleSubmit}>
+                    Nộp bài
+                </button>
+            )}
+
+            {/* Hiện điểm khi đã nộp */}
+            {score && (
+                <div className="score">
+                    Bạn đúng {score.correct}/{score.total}
+                </div>
+            )}
         </div>
     );
 }
